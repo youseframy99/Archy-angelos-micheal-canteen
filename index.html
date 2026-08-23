@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الكانتين والمكتبة | كنيسة رئيس الملائكة ميخائيل</title>
+<link rel="icon" href="cross (2).png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <img src="Archangel Michael by mrmr96 on DeviantArt.jpg" alt="رئيس الملائكة ميخائيل" class="header-icon">
+    <div class="header-title">
+      <img src="cross (2).png" alt="صليب قبطي" class="header-cross">
+      <div>
+        <h1>الكانتين والمكتبة</h1>
+        <p>كنيسة رئيس الملائكة ميخائيل - مطرانية المحلة الكبرى</p>
+      </div>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="site-nav" id="siteNav">
+    <a href="#new">جديد الكانتين</a>
+    <a href="#catalog">الكتالوج</a>
+    <a href="#offers">العروض والمجموعات</a>
+    <a href="#hours">مواعيد العمل</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-pattern" aria-hidden="true"></div>
+    <div class="hero-content">
+      <span class="eyebrow">تحت شفاعة رئيس الملائكة ميخائيل</span>
+      <h2>كل ما يخص الكانتين والمكتبة في مكان واحد</h2>
+      <p>منتجات، كتب، وهدايا الكنيسة بأسعارها ومواعيدها - محدّثة أول بأول</p>
+    </div>
+  </section>
+
+  <section id="new" class="section">
+    <div class="section-head">
+      <span class="section-eyebrow">وصل حديثاً</span>
+      <h3>جديد الكانتين</h3>
+    </div>
+    <div class="cards-row" id="newArrivals">
+      <!-- تتم تعبئتها من لوحة التحكم -->
+      <p class="empty-note">هتظهر هنا المنتجات الجديدة اللي بيضيفها الخادم من لوحة التحكم.</p>
+    </div>
+  </section>
+
+  <section id="catalog" class="section section-alt">
+    <div class="section-head">
+      <span class="section-eyebrow">تصفح الكل</span>
+      <h3>الكتالوج</h3>
+    </div>
+    <div class="filter-row" id="catalogFilters">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="products">منتجات</button>
+      <button class="filter-btn" data-filter="books">كتب</button>
+      <button class="filter-btn" data-filter="gifts">عروض</button>
+    </div>
+    <div class="cards-grid" id="catalogGrid">
+      <p class="empty-note">هيظهر هنا كتالوج المنتجات كامل بعد ربط لوحة التحكم بقاعدة البيانات.</p>
+    </div>
+  </section>
+
+  <section id="offers" class="section">
+    <div class="section-head">
+      <span class="section-eyebrow">لا تفوّتها</span>
+      <h3>العروض والمجموعات</h3>
+    </div>
+    <div class="cards-row" id="offersRow">
+      <p class="empty-note">العروض والمجموعات (وجبات، أعياد، هدايا) هتتضاف هنا من لوحة التحكم.</p>
+    </div>
+  </section>
+
+  <section id="hours" class="section section-alt hours-section">
+    <div class="section-head">
+      <span class="section-eyebrow">تعرف علينا</span>
+      <h3>مواعيد العمل</h3>
+    </div>
+    <div class="hours-card">
+      <div class="hours-row"><span>السبت - الأحد</span><span>10:00 ص - 8:00 م</span></div>
+      <div class="hours-row"><span>الاثنين - الخميس</span><span>4:00 م - 8:00 م</span></div>
+      <div class="hours-row"><span>الجمعة</span><span>مغلق</span></div>
+      <p class="hours-note">المواعيد قابلة للتعديل من لوحة التحكم حسب مواعيد القداسات والمناسبات.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <img src="MVSD-removebg-preview.png" alt="archangel" class="footer-arch">
+  <p>كنيسة رئيس الملائكة ميخائيل - مطرانية المحلة الكبرى</p>
+  <p class="designer"> صمم من احد ابناء كنيسة رئيس الملائكة ميخائيل اذكروه في صلواتكم</p>
+</footer>
+
+<script type="module" src="main.js"></script></body>
+</html>

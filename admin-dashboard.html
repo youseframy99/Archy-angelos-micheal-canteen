@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم | الكانتين والمكتبة</title>
+<link rel="icon" href="cross (2).png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+
+<header class="dashboard-header">
+  <h1>لوحة تحكم الكانتين والمكتبة</h1>
+  <button id="logoutBtn">تسجيل خروج</button>
+</header>
+
+<main class="dashboard-main">
+  <p id="welcomeMsg">جاري التحقق من الدخول...</p>
+
+  <section class="product-form-section">
+    <h2 id="formTitle">إضافة منتج جديد</h2>
+    <form id="productForm">
+      <input type="hidden" id="productId">
+
+      <label for="pName">اسم المنتج</label>
+      <input type="text" id="pName" required>
+
+      <label for="pPrice">السعر (جنيه)</label>
+      <input type="number" id="pPrice" min="0" step="0.01" required>
+
+      <label for="pCategory">النوع</label>
+      <select id="pCategory" required>
+        <option value="products">منتج</option>
+        <option value="books">كتاب</option>
+        <option value="gifts">عرض</option>
+      </select>
+
+      <label for="pStock">الكمية المتوفرة</label>
+      <input type="number" id="pStock" min="0" step="1" required>
+
+      <label for="pImage">صورة المنتج</label>
+      <input type="file" id="pImage" accept="image/*">
+      <img id="imagePreview" class="image-preview" alt="" hidden>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="pIsNew">
+        <span>منتج جديد (يظهر في "جديد الكانتين")</span>
+      </label>
+
+      <p class="form-status" id="formStatus"></p>
+
+      <div class="form-actions">
+        <button type="submit" id="saveBtn">حفظ المنتج</button>
+        <button type="button" id="cancelEditBtn" hidden>إلغاء التعديل</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="product-list-section">
+    <h2>كل المنتجات</h2>
+    <div class="table-wrap">
+      <table id="productsTable">
+        <thead>
+          <tr>
+            <th>الصورة</th>
+            <th>الاسم</th>
+            <th>السعر</th>
+            <th>النوع</th>
+            <th>الكمية</th>
+            <th>الحالة</th>
+            <th>إجراءات</th>
+          </tr>
+        </thead>
+        <tbody id="productsTableBody">
+          <tr><td colspan="7" class="empty-note">جاري تحميل المنتجات...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="admin-dashboard.js"></script>
+<script type="module" src="admin-products.js"></script>
+</body>
+</html>

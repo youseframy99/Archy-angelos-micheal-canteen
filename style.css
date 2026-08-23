@@ -288,3 +288,17 @@ a { color: inherit; text-decoration: none; }
   display: block;
   background: var(--border);
 }
+.admin-header-link {
+  color: var(--gold-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--gold);
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.admin-header-link:hover {
+  background: var(--gold);
+  color: var(--navy-dark);
+}

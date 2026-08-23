@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>لوحة التحكم | الكانتين والمكتبة</title>
-<link rel="icon" href="cross (2).png">
+<link rel="icon" href="coptic-cross.png">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="admin-style.css">
@@ -18,6 +18,11 @@
 
 <main class="dashboard-main">
   <p id="welcomeMsg">جاري التحقق من الدخول...</p>
+
+  <div id="lowStockAlert" class="low-stock-alert" hidden>
+    <strong>⚠️ منتجات قربت تخلص:</strong>
+    <ul id="lowStockList"></ul>
+  </div>
 
   <section class="product-form-section">
     <h2 id="formTitle">إضافة منتج جديد</h2>
@@ -34,7 +39,7 @@
       <select id="pCategory" required>
         <option value="products">منتج</option>
         <option value="books">كتاب</option>
-        <option value="gifts">عرض</option>
+        <option value="gifts">هدية</option>
       </select>
 
       <label for="pStock">الكمية المتوفرة</label>

@@ -112,8 +112,31 @@ function resetForm() {
 
 cancelEditBtn.addEventListener('click', resetForm);
 
+const LOW_STOCK_THRESHOLD = 3; // أي منتج كميته أقل من أو يساوي الرقم ده يعتبر "قرب يخلص"
+const lowStockAlert = document.getElementById('lowStockAlert');
+const lowStockList = document.getElementById('lowStockList');
+
 // عرض قائمة المنتجات لحظياً (أي تغيير في Firestore بيتحدث هنا تلقائياً)
 onSnapshot(productsCol, (snapshot) => {
+  // تحديث تنبيه المخزون المنخفض
+  const lowStockItems = [];
+  snapshot.forEach((docSnap) => {
+    const p = docSnap.data();
+    const stock = p.stock ?? 0;
+    if (stock > 0 && stock <= LOW_STOCK_THRESHOLD) {
+      lowStockItems.push({ name: p.name, stock });
+    }
+  });
+
+  if (lowStockItems.length > 0) {
+    lowStockList.innerHTML = lowStockItems
+      .map(item => `<li>${item.name} — باقي ${item.stock} بس</li>`)
+      .join('');
+    lowStockAlert.hidden = false;
+  } else {
+    lowStockAlert.hidden = true;
+  }
+
   if (snapshot.empty) {
     tableBody.innerHTML = '<tr><td colspan="7" class="empty-note">لسه مفيش منتجات مضافة.</td></tr>';
     return;

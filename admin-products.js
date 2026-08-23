@@ -112,7 +112,7 @@ function resetForm() {
 
 cancelEditBtn.addEventListener('click', resetForm);
 
-const LOW_STOCK_THRESHOLD = 3; // أي منتج كميته أقل من أو يساوي الرقم ده يعتبر "قرب يخلص"
+const LOW_STOCK_THRESHOLD = 5; // أي منتج كميته أقل من أو يساوي الرقم ده يعتبر "قرب يخلص"
 const lowStockAlert = document.getElementById('lowStockAlert');
 const lowStockList = document.getElementById('lowStockList');
 

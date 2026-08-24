@@ -11,7 +11,18 @@
   --radius: 14px;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* 🟢 إصلاح شامل لمنع الشاشة من الخروج يمين وشمال */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; /* بيمنع السكرول العرضي تماماً */
+}
 
 body {
   font-family: 'Cairo', sans-serif;
@@ -32,6 +43,7 @@ a { color: inherit; text-decoration: none; }
 .site-header {
   background: var(--navy);
   border-bottom: 3px solid var(--gold);
+  width: 100%;
 }
 
 .header-inner {
@@ -42,6 +54,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  width: 100%;
 }
 
 .header-icon {
@@ -50,6 +63,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--gold);
+  flex-shrink: 0;
 }
 
 .header-title {
@@ -62,7 +76,9 @@ a { color: inherit; text-decoration: none; }
 .header-cross {
   width: 70px;
   height: 70px;
-  margin-right: 50px;
+  /* 🛑 تم تشغيل المارجن القاتل هنا */
+  margin-right: 10px; 
+  flex-shrink: 0;
 }
 
 .header-title h1 {
@@ -93,7 +109,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .site-nav {
- max-width: 1100px;
+  max-width: 1100px;
   display: flex;
   gap: 28px;
   padding: 0 20px 12px;
@@ -254,8 +270,63 @@ a { color: inherit; text-decoration: none; }
 
 .footer-arch { width: 100px; height: 100px; margin-bottom: 20px; }
 
-/* Mobile */
+/* Designer & Links */
+.designer {
+  font-style: oblique;
+  font-display: fallback;
+  color: #1eff00;
+}
+
+.product-img {
+  width: 100%; /* 🟢 تصليح عرض صورة المنتج للموبايل */
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  background: var(--border);
+}
+
+.admin-header-link {
+  color: var(--gold-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--gold);
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.admin-header-link:hover {
+  background: var(--gold);
+  color: var(--navy-dark);
+}
+
+/* 📱📱📱 تعديلات الموبايل القاطعة (Mobile Responsive) 📱📱📱 */
 @media (max-width: 720px) {
+  .header-inner {
+    flex-wrap: wrap; /* تسمح للعناصر تنزل تحت بعض بدال ما ترحل برة الشاشة */
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .header-icon {
+    width: 65px; /* تصغير صورة الملاك للموبايل */
+    height: 65px;
+  }
+
+  .header-cross {
+    width: 40px; /* تصغير الصليب */
+    height: 40px;
+    margin-right: 0; /* إلغاء المارجن الكبير */
+  }
+
+  .header-title h1 {
+    font-size: 1rem; /* تصغير الخط عشان يكفي */
+  }
+
+  .header-title p {
+    font-size: 0.7rem;
+  }
+
   .nav-toggle { display: flex; }
 
   .site-nav {
@@ -275,30 +346,4 @@ a { color: inherit; text-decoration: none; }
   .site-nav a { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
 
   .hero h2 { font-size: 1.5rem; }
-}
-.designer{
- font-style: oblique;
- font-display: fallback;
- color: #1eff00;
-}
-.product-img {
-  width: 80%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  background: var(--border);
-}
-.admin-header-link {
-  color: var(--gold-light);
-  font-size: 0.8rem;
-  font-weight: 600;
-  border: 1px solid var(--gold);
-  padding: 6px 14px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.admin-header-link:hover {
-  background: var(--gold);
-  color: var(--navy-dark);
 }
